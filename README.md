@@ -27,7 +27,8 @@ $info | Format-Table -Wrap -AutoSize
 ```
 
 PowerShell Output:
-
+```
 ProductName           DisplayVersion BuildNumber ServicingChannel                                                        
 -----------           -------------- ----------- ----------------                                                        
 Windows 10 Enterprise 22H2           19045.6216  General Availability Channel 2025-08 B 2025-08-12 19045.6216 KB5063709
+```
