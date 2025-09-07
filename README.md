@@ -2,7 +2,7 @@ Please only use Blame or Raw.
 
 Repo will automatically be updated.
 
-
+PowerShell Code for Windows 10:
 ```
 $reg = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
