@@ -8,14 +8,6 @@ PowerShell Code for Windows 10:
 ```
 $reg = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
-$info = [PSCustomObject]@{
-    ProductName    = $reg.ProductName
-    DisplayVersion = $reg.DisplayVersion
-    BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
-}
-
-$info
-
 $searchBuild = $reg.UBR
 
 # URL auslesen
@@ -28,4 +20,13 @@ $line = $pageText -split "`n" | Where-Object { $_ -match "$searchBuild" }
 
 # Ergebnis anzeigen
 $line
+
+$info = [PSCustomObject]@{
+    ProductName    = $reg.ProductName
+    DisplayVersion = $reg.DisplayVersion
+    BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
+    ServicingChannel = $line
+}
+
+$info
 ```
