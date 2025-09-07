@@ -18,9 +18,6 @@ $pageText = $response.Content
 # Nach Build suchen
 $line = $pageText -split "`n" | Where-Object { $_ -match "$searchBuild" }
 
-# Ergebnis anzeigen
-$line
-
 $info = [PSCustomObject]@{
     ProductName    = $reg.ProductName
     DisplayVersion = $reg.DisplayVersion
