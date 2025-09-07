@@ -3,7 +3,7 @@ Please only use Blame or Raw.
 Repo will automatically be updated.
 
 
-
+```
 $reg = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
 $info = [PSCustomObject]@{
@@ -26,3 +26,4 @@ $line = $pageText -split "`n" | Where-Object { $_ -match "$searchBuild" }
 
 # Ergebnis anzeigen
 $line
+```
