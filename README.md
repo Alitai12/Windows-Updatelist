@@ -81,8 +81,8 @@ $line = $contents -split "`n" | Where-Object { $_ -match "$searchBuild" }
 $regex = '(\d{4}-\d{2}).*?(KB\d+)'
 
 if ($line -match $regex) {
-        $YearMonth = $matches[1] 
-        $KB        = $matches[2]  
+    $YearMonth = $matches[1] 
+    $KB        = $matches[2]  
 }
 
 $info = [PSCustomObject]@{
