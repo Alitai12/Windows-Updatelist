@@ -50,7 +50,7 @@ $line = $pageText -split "`n" | Where-Object { $_ -match "$searchBuild" }
 
 $info = [PSCustomObject]@{
     ProductName    = $reg.ProductName
-    ReleaseId = $reg.ReleaseId
+    ReleaseId      = $reg.ReleaseId
     BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
     ServicingChannel = $line
 }
