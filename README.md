@@ -76,19 +76,21 @@ $contents = foreach ($url in $urls) {
 $reg = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
 $searchBuild = "$($reg.CurrentBuild).$($reg.UBR)"
-
 $line = $contents -split "`n" | Where-Object { $_ -match "$searchBuild" }
 
 $regex = '(\d{4}-\d{2}).*?(KB\d+)'
 
 if ($line -match $regex) {
-    $info = [PSCustomObject]@{
-        ProductName    = $reg.ProductName
-        ReleaseId      = $reg.ReleaseId
-        BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
-        YearMonth = $matches[1]
-        KB        = $matches[2]
-    }
+        $YearMonth = $matches[1] 
+        $KB        = $matches[2]  
+}
+
+$info = [PSCustomObject]@{
+    ProductName    = $reg.ProductName
+    ReleaseId      = $reg.ReleaseId
+    BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
+    YearMonth = $YearMonth
+    KB        = $KB
 }
 
 $info | Format-Table -Wrap -AutoSize
