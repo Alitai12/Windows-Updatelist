@@ -89,8 +89,8 @@ $info = [PSCustomObject]@{
     ReleaseId      = $reg.ReleaseId
     BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
     Updatetyp = $Updatetyp
-    KB        = $KB
     Date      = $Date
+    KB        = $KB
 }
 
 $info | Format-Table -Wrap -AutoSize
