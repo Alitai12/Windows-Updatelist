@@ -88,7 +88,7 @@ $info = [PSCustomObject]@{
     ProductName    = $reg.ProductName
     ReleaseId      = $reg.ReleaseId
     BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
-    Update type    = $Updatetype
+    'Update type'  = $Updatetype
     Date           = $Date
     KB             = $KB
 }
