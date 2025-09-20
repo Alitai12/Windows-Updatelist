@@ -60,7 +60,6 @@ $info | Format-Table -Wrap -AutoSize
 
 PowerShell for all Servers:
 ```
-# URLs in ein Array packen
 $urls = @(
     "https://raw.githubusercontent.com/Alitai12/Windows-Updatelist/refs/heads/main/Windows%20Server%202016%2014393.txt",
     "https://raw.githubusercontent.com/Alitai12/Windows-Updatelist/refs/heads/main/Windows%20Server%202019%2017763.txt",
@@ -77,20 +76,21 @@ $reg = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
 $searchBuild = "$($reg.CurrentBuild).$($reg.UBR)"
 $line = $contents -split "`n" | Where-Object { $_ -match "$searchBuild" }
-
-$regex = '(\d{4}-\d{2}).*?(KB\d+)'
+$regex = '(\d{4}-\d{2}\s+(?:A|B|C|D|OOB))\s+(\d{4}-\d{2}-\d{2}).*?(KB\d+)'
 
 if ($line -match $regex) {
-    $YearMonth = $matches[1] 
-    $KB        = $matches[2]  
+    $Updatetyp   = $matches[1]  # z. B. "2025-09 B"
+    $Date    = $matches[2]  # z. B. "2025-09-09"
+    $KB        = $matches[3]  # z. B. "KB5065429"
 }
 
 $info = [PSCustomObject]@{
     ProductName    = $reg.ProductName
     ReleaseId      = $reg.ReleaseId
     BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
-    YearMonth = $YearMonth
+    Updatetyp = $Updatetyp
     KB        = $KB
+    Date      = $Date
 }
 
 $info | Format-Table -Wrap -AutoSize
