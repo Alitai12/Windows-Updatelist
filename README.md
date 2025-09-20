@@ -79,7 +79,7 @@ $line = $contents -split "`n" | Where-Object { $_ -match "$searchBuild" }
 $regex = '(\d{4}-\d{2}\s+(?:A|B|C|D|E|OOB))\s+(\d{4}-\d{2}-\d{2}).*?(KB\d+)'
 
 if ($line -match $regex) {
-    $Updatetyp   = $matches[1]  # z. B. "2025-09 B"
+    $Updatetype   = $matches[1]  # z. B. "2025-09 B"
     $Date    = $matches[2]  # z. B. "2025-09-09"
     $KB        = $matches[3]  # z. B. "KB5065429"
 }
@@ -88,9 +88,9 @@ $info = [PSCustomObject]@{
     ProductName    = $reg.ProductName
     ReleaseId      = $reg.ReleaseId
     BuildNumber    = "$($reg.CurrentBuild).$($reg.UBR)"
-    Updatetyp = $Updatetyp
-    Date      = $Date
-    KB        = $KB
+    Update type    = $Updatetype
+    Date           = $Date
+    KB             = $KB
 }
 
 $info | Format-Table -Wrap -AutoSize
