@@ -1,4 +1,6 @@
-﻿General Availability Channel 2025-09 B 2025-09-09 22631.5909 KB5065431
+﻿General Availability Channel 2025-10 B 2025-10-14 22631.6060 KB5066793
+General Availability Channel 2025-09 D 2025-09-23 22631.5984 KB5065790
+General Availability Channel 2025-09 B 2025-09-09 22631.5909 KB5065431
 General Availability Channel 2025-08 D 2025-08-26 22631.5840 KB5064080
 General Availability Channel 2025-08 OOB 2025-08-19 22631.5771 KB5066189
 General Availability Channel 2025-08 B 2025-08-12 22631.5768 KB5063875
